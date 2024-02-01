@@ -3,8 +3,9 @@ import Screen from '@/components/Screen'
 import React, { useState } from 'react'
 import { getCardPattern } from '@/helpers'
 
-export default function page() {
-  const [cardDetails, setCardDetails] = useState({})
+
+export default function Page() {
+  const [cardDetails, setCardDetails] = useState<CardDetailsProps>()
   const [isClicked, setIsClicked] = useState(false)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -67,8 +68,8 @@ export default function page() {
                     setCardDetails(prev => ({ ...prev, [name]: value.replaceAll('/', '') }))
                   }}
                   value={(function () {
-                    const month = cardDetails?.expiry?.slice(0, 2)
-                    const year = cardDetails?.expiry?.slice(2, 5)
+                    const month = cardDetails?.expiry?.slice(0, 2) || ''
+                    const year = cardDetails?.expiry?.slice(2, 5) || ''
                     console.log(month)
                     return month?.concat('/', year)
                   })()}
@@ -83,7 +84,8 @@ export default function page() {
                   onChange={handleChange}
                   name='cvv'
                   placeholder='123'
-                  className='bg-slate-200 px-2 py-2 w-1/2 rounded-md outline-none' type='text' name='cvv' />
+                  className='bg-slate-200 px-2 py-2 w-1/2 rounded-md outline-none' type='text'
+                />
               </div>
             </div>
           </div>
@@ -95,7 +97,8 @@ export default function page() {
 
 
 
-const CardFront = ({ cardDetails }: CardDetailsProps) => {
+const CardFront = ({ cardDetails }: { cardDetails: CardDetailsProps | undefined }) => {
+
   return <div className='flip-card-front transition-all shadow rounded-lg bg-gradient-to-r from-red-500 to-blue-500'
   >
     <div className='flex flex-col h-full justify-between text-white py-4 px-6'>
@@ -117,7 +120,7 @@ const CardFront = ({ cardDetails }: CardDetailsProps) => {
     </div>
   </div>
 }
-const CardBack = ({ cardDetails }: CardDetailsProps) => {
+const CardBack = ({ cardDetails }: { cardDetails: CardDetailsProps | undefined }) => {
 
   return <div className='flip-card-back transition-all shadow rounded-lg bg-gradient-to-r from-red-500 to-blue-500 h-52'
   >
@@ -134,6 +137,6 @@ const CardBack = ({ cardDetails }: CardDetailsProps) => {
 
 
 
-type CardDetailsProps = {
-  cardDetails: {}
-}
+type CardDetailsProps = { expiry?: string, card_no?: string, cvv?: string, card_holder_name?: string }
+
+

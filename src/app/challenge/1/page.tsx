@@ -2,7 +2,7 @@
 import Modal from '@/components/Modal'
 import React from 'react'
 import { useState, SyntheticEvent } from 'react'
-export default function page() {
+export default function Page() {
     const [formValues, setFormValues] = useState({})
     const [showModal, setShowModal] = useState(false)
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
