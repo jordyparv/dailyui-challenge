@@ -56,8 +56,22 @@ export default function page() {
             <div className='flex justify-between'>
               <div className='space-y-2 flex flex-col'>
                 <label className='font-medium'>Expiry Date</label>
-                <input type='text'
+                <input
+                  type='text'
                   placeholder='05/24'
+                  name='expiry'
+                  maxLength={5}
+                  onChange={(e) => {
+                    const { name, value } = e.target
+
+                    setCardDetails(prev => ({ ...prev, [name]: value.replaceAll('/', '') }))
+                  }}
+                  value={(function () {
+                    const month = cardDetails?.expiry?.slice(0, 2)
+                    const year = cardDetails?.expiry?.slice(2, 5)
+                    console.log(month)
+                    return month?.concat('/', year)
+                  })()}
                   className='bg-slate-200 px-2 py-2 w-1/2 rounded-md outline-none' />
               </div>
               <div className='space-y-2 flex flex-col'>
@@ -97,7 +111,7 @@ const CardFront = ({ cardDetails }: CardDetailsProps) => {
         </div>
         <div className=''>
           <p className='text-xs'>Expiry Date</p>
-          <p>02/30</p>
+          <p>{cardDetails?.expiry && cardDetails.expiry}</p>
         </div>
       </div>
     </div>
