@@ -36,8 +36,12 @@ export default function Page() {
                   type='text'
                   maxLength={19}
                   onChange={(e) => {
+
                     const { name, value } = e.target
-                    setCardDetails(prev => ({ ...prev, [name]: value.replaceAll(' ', '') }))
+                    const digitPtn = new RegExp(/^\d+$/, 'g')
+                    if (digitPtn.test(value.replaceAll(' ', '')) || value == '') {
+                      setCardDetails(prev => ({ ...prev, [name]: value.replaceAll(' ', '') }))
+                    }
                   }}
                   value={getCardPattern(cardDetails?.card_no)}
                   placeholder='****     ****     ****     ****' />
@@ -90,6 +94,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+        <footer className='absolute top-0  text-white  uppercase text-center'>CARD WILL FLIP WHEN CVV IS ENTERED</footer>
       </div>
     </Screen>
   )
