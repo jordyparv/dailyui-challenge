@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
 
 const MonsterFont = localFont({
     src: [

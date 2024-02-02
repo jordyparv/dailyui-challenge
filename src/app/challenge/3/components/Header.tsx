@@ -1,12 +1,22 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import localFont from 'next/font/local'
 
+const MonsterFont = localFont({
+    src: [
+        {
+            path: '../../../../../public/assets/fonts/WOODCUTTER-DRIPPING.ttf',
+            weight: '500'
+        },
+    ],
+    variable: '--font-monster'
+})
 export default function Header() {
     return (
         <header className='flex  text-white py-4 px-6 items-center justify-between'>
-            <Link href={'/#'} className='font-bold text-2xl'>
-                <h2>Crazy <br />Luppy</h2>
+            <Link href={'/#'} className={`text-2xl ${MonsterFont.variable} font-sans`}>
+                Crazy <br />Luppy
             </Link>
             <nav className='flex '>
                 <ul className='flex gap-4 items-center'>
