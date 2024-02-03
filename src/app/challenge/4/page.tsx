@@ -1,7 +1,7 @@
 'use client'
+import ResizableText from '@/components/ResizableText';
 import Screen from '@/components/Screen'
 import React, { useState } from 'react'
-
 export default function Page() {
     const [displayOutput, setDisplayOutput] = useState<string>('')
 
@@ -79,7 +79,7 @@ export default function Page() {
 
 const Display = ({ output }: DisplayPropsType) => {
     return <div className='text-white text-4xl font-medium px-4 h-36 flex items-center justify-end'>
-        {output ? output : 0}
+        <ResizableText text={output} maxFontSize={30} minFontSize={10} />
     </div>
 }
 
