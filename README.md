@@ -6,7 +6,8 @@
 3. ### Landing Page
 4. ### Calculator
 5. ### AppIcon
-#Reusable Component
-2. * ### FlipCard 
-    * ### Screen
+6. ### Profile
+# Reusable Component
+2. ### Screen
 4. ### Resizable Font
+6. ### HoverFollowCard
