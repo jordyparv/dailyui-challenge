@@ -8,6 +8,6 @@
 5. ### AppIcon
 6. ### Profile
 # Reusable Component
-2. ### Screen
-4. ### Resizable Font
-6. ### HoverFollowCard
+* ### Screen
+* ### Resizable Font
+* ### HoverFollowCard
