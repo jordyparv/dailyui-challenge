@@ -7,6 +7,7 @@
 4. ### Calculator
 5. ### AppIcon
 6. ### Profile
+7. ### Setting menu
 # Reusable Component
 * ### Screen
 * ### Resizable Font
