@@ -16,10 +16,12 @@ export default function HoverFollowCard({ children, tilt = 15 }: HoverMoveCardPr
             const vertical = (clientY - offsetTop) / clientHeight;
             const rotateX = (THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2);
             const rotateY = (vertical * THRESHOLD - THRESHOLD / 2).toFixed(2);
+            // currentCardRef?.style?.removeProperty('transition');
             currentCardRef?.style?.setProperty('transform', `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`);
         }
 
         const resetStyles = (e: React.MouseEvent<HTMLDivElement>) => {
+            // currentCardRef?.style?.setProperty('transition', `transform 200ms`);
             currentCardRef?.style?.setProperty('transform', `perspective(${e.currentTarget.clientWidth}px) rotateX(0deg) rotateY(0deg)`);
         };
 

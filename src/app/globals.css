@@ -31,3 +31,33 @@
   transform: rotateY(180deg);
 }
 
+
+.slide-left{
+  animation:slideLeft 500ms ease-out;
+}
+
+.slide-right{
+  animation:sliderRight 500ms ease-out;
+}
+
+
+@keyframes slideLeft {
+  from{
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes sliderRight {
+  from{
+    opacity: 0;
+    transform: translateX(-400px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

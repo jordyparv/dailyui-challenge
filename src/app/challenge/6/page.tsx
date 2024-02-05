@@ -20,14 +20,15 @@ export default function Page() {
                                 </div>
                             </div>
 
-                            <div className='bg-white/20 border-4  shadow rounded-2xl mx-4 p-2 flex justify-center items-center flex-col backdrop-blur h-1/2'>
-                                <div className=''>
-                                    <p className='p-2  font-semibold text-black/80'>Name : Sara</p>
-                                    <p className='p-2  font-semibold text-black/80'>Email : sara@jordan.co</p>
-                                    <p className='p-2  font-semibold text-black/80'>Phone : +913284651365</p>
-                                    <p className='p-2  font-semibold text-black/80'>Designation : Software Engineer</p>
-                                    <p className='p-2  font-semibold text-black/80'>Department : IT</p>
-                                    <p className='p-2  font-semibold text-black/80'>Company : XYZ</p>
+                            <div className='bg-white/20 border-4 shadow rounded-2xl mx-4 p-2 flex justify-center items-center flex-col backdrop-blur h-1/2'
+                            >
+                                <div>
+                                    <p className='p-2 font-semibold text-black/80'>Name : Sara</p>
+                                    <p className='p-2 font-semibold text-black/80'>Email : sara@jordan.co</p>
+                                    <p className='p-2 font-semibold text-black/80'>Phone : +913284651365</p>
+                                    <p className='p-2 font-semibold text-black/80'>Designation : Software Engineer</p>
+                                    <p className='p-2 font-semibold text-black/80'>Department : IT</p>
+                                    <p className='p-2 font-semibold text-black/80'>Company : XYZ</p>
                                 </div>
                             </div>
                             <p className='text-xs font-medium'>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
