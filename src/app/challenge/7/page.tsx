@@ -57,19 +57,10 @@ export default function Page() {
     }])
     const [clickTrack, setClickTrack] = useState<number[]>([])
     const handleForwardScreen = (id: number): void => {
+
         setClickTrack(prev => [...prev, id])
         setSettings((prevSettings) => {
-            function mapping(arr: SettingPropsType[], id: number) {
-                for (let i = 0; i < arr.length; i++) {
-                    if (arr[i].id === id) {
-                        arr[i].isClicked = true;
-                        return;
-                    } else if (arr[i].settings) {
-                        mapping(arr[i].settings, id);
-                    }
-                }
-            }
-            mapping(prevSettings, id);
+            mapping(prevSettings, id, true);
             return [...prevSettings];
         });
 
@@ -80,18 +71,7 @@ export default function Page() {
             prev.slice(0, -1)
         )
         setSettings((prevSettings) => {
-            function mapping(arr: SettingPropsType[], id: number) {
-                for (let i = 0; i < arr.length; i++) {
-                    if (arr[i].id === id) {
-                        arr[i].isClicked = false;
-                        return;
-                    } else if (arr[i].settings) {
-                        mapping(arr[i].settings, id);
-                    }
-                }
-            }
-            console.log(id)
-            mapping(prevSettings, id);
+            mapping(prevSettings, id, false);
             return [...prevSettings];
         });
 
@@ -140,7 +120,7 @@ const ToggleButton = () => {
     </button>
 }
 
-const SwipeWindow = ({ settings, handleForwardScreen }: { settings: SettingPropsType[], handleForwardScreen: HandleForwardScreenProp }) => {
+const SwipeWindow = ({ settings, handleForwardScreen }: { settings?: SettingPropsType[] | undefined, handleForwardScreen: HandleForwardScreenProp }) => {
 
     return <div className='h-full w-full bg-white absolute top-0 left-0 slide-left'>
         {settings?.map((item, key) =>
@@ -159,11 +139,23 @@ const SwipeWindow = ({ settings, handleForwardScreen }: { settings: SettingProps
                         </span>
                     </button>
                 }
-                {item.isClicked && <SwipeWindow settings={item.settings} />}
+                {item.isClicked && <SwipeWindow settings={item.settings} handleForwardScreen={handleForwardScreen} />}
             </div>)}
     </div>
 }
 
+function mapping(arr: SettingPropsType[] | undefined, id: number, clicked: boolean) {
+    if (!arr?.length)
+        return
+    for (let i = 0; i < arr?.length; i++) {
+        if (arr[i].id === id) {
+            arr[i].isClicked = clicked;
+            return;
+        } else if (arr[i]?.settings) {
+            mapping(arr[i]?.settings, id, clicked);
+        }
+    }
+}
 
 type SettingPropsType = {
     name: string;
@@ -172,7 +164,5 @@ type SettingPropsType = {
     settings?: SettingPropsType[];
     isClicked?: boolean;
 };
+type HandleForwardScreenProp = (id: number) => void
 
-type HandleForwardScreenProp = {
-    handleForwardScreen: (id: number) => void;
-};
