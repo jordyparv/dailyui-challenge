@@ -16,17 +16,17 @@ export default function MusicPlayer() {
             style={{
                 background: `url(${queue ? cover2 : cover})`,
                 backgroundRepeat: 'no-repeat',
-                backgroundSize: 'contain',
+                backgroundSize: 'cover',
             }}
         >
             <div className='h-full w-full bg-black/40 backdrop-blur-2xl flex flex-col items-center border rounded-xl border-white/10'>
                 <div className='h-80 grid place-items-center'>
                     <Image
-                        src={queue ? cover2 : cover}
+                        src={!queue ? '/images/cover.png' : '/images/cover2.jpg'}
                         alt='cover'
                         width={150}
                         height={150}
-                        className={`object-contain rounded-lg shadow select-none transition-all ${isPlaying ? 'w-60 h-60' : 'w-40 h-40'
+                        className={`object-contain rounded-lg backdrop-shadow select-none transition-all ${isPlaying ? 'w-60 h-60' : 'w-40 h-40'
                             }`}
                     />
                 </div>
