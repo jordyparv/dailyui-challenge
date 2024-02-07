@@ -9,6 +9,7 @@
 6. ### Profile
 7. ### Setting menu
 8. ### 404
+9. ### Music Player
 # Reusable Component
 * ### Screen
 * ### Resizable Font
