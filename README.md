@@ -8,7 +8,9 @@
 5. ### AppIcon
 6. ### Profile
 7. ### Setting menu
+8. ### 404
 # Reusable Component
 * ### Screen
 * ### Resizable Font
 * ### HoverFollowCard
+* ### Music Player
